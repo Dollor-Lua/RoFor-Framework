@@ -42,7 +42,7 @@ function events.new()
 		_destroyed = false,
 		_fired = false,
 		_event = Instance.new("BindableEvent"),
-	})
+	}, events)
 	
 	return self
 	
