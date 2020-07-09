@@ -116,6 +116,10 @@ function tab:remove(int)
 	end
 end
 
+function tab:GetContents()
+	return self.contents
+end
+
 function tab:Reset()
 	self.contents = {}
 end
