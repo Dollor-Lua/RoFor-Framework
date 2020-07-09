@@ -53,15 +53,17 @@ end
 
 function tab.new(...)
 	
-	local s2 = createMetaSelf()
+	local s2   = createMetaSelf()
 	
 	local self = setmetatable({
-		contents = {...},
+		contents    = {...},
 		
-		_removed = false,
-		_holder = s2,
+		_removed    = false,
+		_holder     = s2,
 		
-		itemAdded = s2.itemAdded.Event,
+		length      = #{...},
+		
+		itemAdded   = s2.itemAdded.Event,
 		itemRemoved = s2.itemRemoved.Event
 	}, tab)
 	
@@ -71,6 +73,7 @@ end
 
 function tab:push(object)
 	table.insert(self.contents, object)
+	self.length = self.length + 1
 	self._holder.itemAdded:Fire(object)
 end
 
@@ -112,6 +115,7 @@ function tab:remove(int)
 	table.remove(self.contents, int)
 	
 	if object then
+		self.length = self.length - 1
 		self._holder.itemRemoved:Fire(object)
 	end
 end
@@ -122,6 +126,7 @@ end
 
 function tab:Reset()
 	self.contents = {}
+	self.length = 0
 end
 
 function tab:Rid()
