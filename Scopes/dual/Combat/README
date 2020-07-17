@@ -1,0 +1,33 @@
+--[[
+
+These scripts will help you develop a personalized combat script.
+
+Each script will have a way to tell you how to use it.
+
+Thanks for using RoFor!
+
+All combat controllers should be something like this:
+
+--------------------- Diagram ---------------------
+
+
+
+
+
+Tool (if fists disable requires handle)
+  |- Server script (requires damage controller, deals damage on remote event fireings)
+  |
+  |- Remote Event
+  |
+  |- Local script (gets on click events and fires the remote event. Debounce should be controlled
+  |  on the server)
+  |
+  |- ... (anything else)
+
+
+
+
+
+--------------------- Diagram ---------------------
+
+]]
